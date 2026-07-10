@@ -1,0 +1,31 @@
+# Raw sequencing reads — re-download with the commands in README.md § Data Acquisition
+*.fastq
+*.fastq.gz
+*fq.gz
+
+# Reference genome + BWA index — re-download with the commands in README.md § Data Acquisition
+Homo_sapiens*.fa
+Homo_sapiens*.fa.gz
+Homo_sapiens*.fa.fai
+Homo_sapiens*.fa.amb
+Homo_sapiens*.fa.ann
+Homo_sapiens*.fa.bwt
+Homo_sapiens*.fa.pac
+Homo_sapiens*.fa.sa
+
+# Alignment files — large binaries, regenerate via the pipeline scripts
+*.sam
+*.bam
+*.bam.bai
+
+# Raw/unfiltered variant calls — large, regenerate via freebayes (scripts/Variant_calling.sh)
+variants.vcf
+variants.vcf.idx
+
+# fastp/Qualimap intermediate JSON/zip (kept: the HTML reports in qc_reports/)
+fastp.json
+*_fastqc.zip
+
+# OS / editor junk
+.DS_Store
+Thumbs.db

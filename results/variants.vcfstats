@@ -1,0 +1,18 @@
+Location                     : variants.vcf
+Failed Filters               : 0
+Passed Filters               : 1373028
+SNPs                         : 1193841
+MNPs                         : 28877
+Insertions                   : 47948
+Deletions                    : 57874
+Indels                       : 7871
+Same as reference            : 36617
+SNP Transitions/Transversions: 1.92 (1326492/692648)
+Total Het/Hom ratio          : 0.44 (407215/929196)
+SNP Het/Hom ratio            : 0.45 (368786/825055)
+MNP Het/Hom ratio            : 0.88 (13551/15326)
+Insertion Het/Hom ratio      : 0.24 (9425/38523)
+Deletion Het/Hom ratio       : 0.30 (13310/44564)
+Indel Het/Hom ratio          : 0.37 (2143/5728)
+Insertion/Deletion ratio     : 0.83 (47948/57874)
+Indel/SNP+MNP ratio          : 0.09 (113693/1222718)

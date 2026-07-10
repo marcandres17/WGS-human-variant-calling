@@ -1,0 +1,15 @@
+name: wgs_variant_calling
+channels:
+  - defaults
+dependencies:
+  - fastqc
+  - samtools
+  - fastp
+  - vcftools
+  - bwa
+  - igv
+  - qualimap
+  - picard
+  - freebayes
+  - rtg-tools
+prefix: /home/marc-andres/miniconda3/envs/wgs_variant_calling
