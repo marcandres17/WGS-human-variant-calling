@@ -348,8 +348,6 @@ This cross-checks cleanly against Qualimap (§7): unpaired reads examined (64,00
 
 Picard's duplication estimate (0.86%) is noticeably lower than both fastp's pre-alignment estimate (0.27%, §3) and Qualimap's (2.76%, §7) — expected, since all three use different methodologies (fastp: k-mer/sequence similarity before alignment; Picard: exact 5′ mapping coordinate + strand after alignment; Qualimap: a statistical estimate from the coverage distribution). None of them is "the" duplication rate; they're three different lenses on the same library.
 
-> **On the library ID:** the command above uses `2845856850`, which is what Picard actually recorded (it's the exact value in the `LIBRARY` column of the real metrics file). The working notes for this step separately jotted down `28.456.850` as "the real name from NCBI" — a different, shorter number. Since `2845856850` is what's reflected in the real output, it's used consistently throughout this report; worth a quick check against your own SRA metadata if you need to know which one is the "official" library identifier.
-
 ## 9. Variant Calling — FreeBayes
 
 ```bash
@@ -407,8 +405,6 @@ vcftools --vcf variants.vcf --remove-indels --minQ 20 \
 ```
 
 Indels were filtered more strictly (**Q30**) than SNPs (**Q20**) because indels — especially in the homopolymer-rich regions flagged in §7 — are more error-prone in short-read alignment.
-
-> *Two small script corrections, both confirmed against the real project files:* the inline comment in the working notes says indels get the *lower*-quality threshold ("indels are more likely to contain errors, so the min quality required is lower"), but the commands actually run use Q30 for indels and Q20 for SNPs — the opposite, and also the bioinformatically sound choice given the homopolymer-indel burden observed. Separately, the `--out` flag for the SNP file was typed as `variants_snvs.vcf` while the very next line (and every downstream file) uses `variants_snps.vcf` — standardized to **`variants_snps`** throughout this report, matching the real output files.
 
 Compression for downstream tools:
 
@@ -529,8 +525,6 @@ _JAVA_OPTIONS='-Xmx10g' igv
 ## Results: High-Impact Variants
 
 VEP annotation and filtering (§12) narrowed the raw call set down to **100 HIGH-impact indel calls across 83 genes** and **155 HIGH-impact SNP calls across 141 genes**. The tables below highlight the entries with the clearest biological narrative; the full lists are in the collapsible sections further down and in `results_indels.txt` / `results_snps.txt`.
-
-> **Correction from the working notes:** *PINK1* was originally grouped with the indels (as a frameshift variant). Checked against the real `results_indels.txt` / `results_snps.txt`, it isn't in the indels file at all — it's a **stop-gained SNP** at chr1:20,649,670. It's listed under SNPs below, and the Discussion section has been updated to match.
 
 ### Highlighted indels
 
