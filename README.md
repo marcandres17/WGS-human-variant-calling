@@ -88,19 +88,19 @@ conda create -n wgs_variant_calling -c bioconda -c conda-forge \
     fastqc fastp bwa samtools qualimap picard freebayes vcftools igv rtg-tools
 ```
 
-| Tool | Version (where logged) | Role |
-|---|---|---|
-| FastQC | — | Raw read quality control |
-| fastp | 1.3.6 | Adapter/quality trimming |
-| BWA | 0.7.19-r1273 | Reference indexing + alignment |
-| samtools | — | SAM/BAM conversion, sorting, indexing, flagstat |
-| Qualimap | — | Alignment QC report |
-| Picard | — | Read groups, duplicate marking |
-| FreeBayes | — | Variant calling |
-| RTG Tools | — | `vcfstats` |
-| vcftools | — | Variant filtering |
-| **Ensembl VEP** | — | **Web tool** (ensembl.org/Tools/VEP) — VCFs were uploaded through the browser, not run locally |
-| IGV | — | Visual inspection of alignments/variants |
+| Tool | Role |
+|---|---|
+| FastQC | Raw read quality control |
+| fastp | Adapter/quality trimming |
+| BWA | Reference indexing + alignment |
+| samtools | SAM/BAM conversion, sorting, indexing, flagstat |
+| Qualimap | Alignment QC report |
+| Picard | Read groups, duplicate marking |
+| FreeBayes | Variant calling |
+| RTG Tools | `vcfstats` |
+| vcftools | Variant filtering |
+| **Ensembl VEP** | **Web tool** (ensembl.org/Tools/VEP) — VCFs were uploaded through the browser, not run locally |
+| IGV | Visual inspection of alignments/variants |
 
 > **Two small reproducibility notes:** (1) the `defaults` channel alone won't resolve most of these bioinformatics packages — add `-c bioconda -c conda-forge` as in the manual command above, or make sure those channels are in your global `~/.condarc`. (2) `ensembl-vep` isn't in the environment at all because annotation was done through the **VEP web interface**, not the command-line tool — if you script this step, add the `ensembl-vep` package or use the REST API instead.
 
